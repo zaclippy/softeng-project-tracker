@@ -13,6 +13,7 @@ COPY . .
 
 # Run the schema and insert script
 RUN sqlite3 database.sqlite3 < projectSchema.sql
-RUN python3 insertScript.py
+# RUN python3 insertScript.py
 EXPOSE 5000
-CMD ["python3", "databaseManipulator.py"]
+# CMD ["python3", "databaseManipulator.py"]
+CMD python3 insertScript.py && python3 databaseManipulator.py
